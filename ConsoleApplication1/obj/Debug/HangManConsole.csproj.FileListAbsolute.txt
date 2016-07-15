@@ -1,0 +1,16 @@
+C:\Users\nathan.egbert\Desktop\Hangman\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\nathan.egbert\Desktop\Hangman\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\nathan.egbert\Desktop\Hangman\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\nathan.egbert\Desktop\Hangman\ConsoleApplication1\bin\Debug\HangManClass.dll
+C:\Users\nathan.egbert\Desktop\Hangman\ConsoleApplication1\bin\Debug\HangManClass.pdb
+C:\Users\nathan.egbert\Desktop\Hangman\ConsoleApplication1\obj\Debug\HangManConsole.csprojResolveAssemblyReference.cache
+C:\Users\nathan.egbert\Desktop\Hangman\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\nathan.egbert\Desktop\Hangman\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\nathan.egbert\Documents\GitHub\Hangman\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\nathan.egbert\Documents\GitHub\Hangman\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\nathan.egbert\Documents\GitHub\Hangman\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\Users\nathan.egbert\Documents\GitHub\Hangman\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\nathan.egbert\Documents\GitHub\Hangman\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\nathan.egbert\Documents\GitHub\Hangman\ConsoleApplication1\bin\Debug\HangManClass.dll
+C:\Users\nathan.egbert\Documents\GitHub\Hangman\ConsoleApplication1\bin\Debug\HangManClass.pdb
+C:\Users\nathan.egbert\Documents\GitHub\Hangman\ConsoleApplication1\obj\Debug\HangManConsole.csprojResolveAssemblyReference.cache
