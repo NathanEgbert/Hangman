@@ -41,24 +41,33 @@ namespace ConsoleApplication1
 
 
                 Console.WriteLine("Enter a guess: ");
+                
                 pGuess = Convert.ToChar(Console.ReadLine());
 
                 g1.checkGuess(pGuess, word);
+
                 g1.checkForWin(word);
+
                 if(g1.checkForWin(word) == true)
                 {
                    Console.Write("The word was: ");
+
+                   Console.WriteLine("");
+
                    printPlaceHolderWord();
-                    Console.WriteLine("");
-                    Console.WriteLine("You Win");
+
+                   Console.WriteLine("");
+
+                   Console.WriteLine("You Win");
                     break;
                 }
                 printPlaceHolderWord();
-
+                Console.WriteLine("");
                 g1.printGuesses();
 
-                
+                Console.WriteLine("");
                 Console.WriteLine("You have: " + g1.getNumOfGuesses + " guesses left.");
+                Console.WriteLine("");
 
 
             } while (g1.getNumOfGuesses != 0);
