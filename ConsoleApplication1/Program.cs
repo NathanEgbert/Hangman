@@ -28,7 +28,7 @@ namespace ConsoleApplication1
              
             Console.WriteLine("");
 
-            printPlaceHolderWord();
+            g1.printPlaceHolderWord(word);
 
             Console.WriteLine("");
 
@@ -54,14 +54,14 @@ namespace ConsoleApplication1
 
                    Console.WriteLine("");
 
-                   printPlaceHolderWord();
+                   g1.printPlaceHolderWord(word);
 
                    Console.WriteLine("");
 
                    Console.WriteLine("You Win");
                     break;
                 }
-                printPlaceHolderWord();
+                g1.printPlaceHolderWord(word);
                 Console.WriteLine("");
                 g1.printGuesses();
 
@@ -76,15 +76,6 @@ namespace ConsoleApplication1
         }
 
         //prints the place holder word
-        public static void printPlaceHolderWord()
-        {
-            for (int i = 0; i < word.Length; i++ )
-            {
-
-                Console.Write(g1.wordPlaceHolder[i]);
-
-            }
-            Console.WriteLine("");
-        }//end print place holder word
+        
     }
 }
