@@ -119,6 +119,17 @@ namespace HangManClass
            }
         }
 
+        //prints the placeholdder word
+        public void printPlaceHolderWord(string word)
+        {
+            for (int i = 0; i < word.Length; i++)
+            {
+
+                Console.Write(wordPlaceHolder[i]);
+
+            }
+            Console.WriteLine("");
+        }//end print place holder word
 
         //getters
         public int getNumOfGuesses
@@ -129,16 +140,7 @@ namespace HangManClass
             }
         }
 
-        public  void printPlaceHolderWord(string word)
-        {
-            for (int i = 0; i < word.Length; i++)
-            {
-
-                Console.Write(wordPlaceHolder[i]);
-
-            }
-            Console.WriteLine("");
-        }//end print place holder word
+        
 
     }//end hangman class
 

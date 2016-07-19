@@ -48,19 +48,19 @@ namespace ConsoleApplication1
 
                 g1.checkForWin(word);
 
-                if(g1.checkForWin(word) == true)
-                {
-                   Console.Write("The word was: ");
+                    if(g1.checkForWin(word) == true)
+                     {
+                       Console.Write("The word was: ");
+    
+                         Console.WriteLine("");
 
-                   Console.WriteLine("");
+                         g1.printPlaceHolderWord(word);
 
-                   g1.printPlaceHolderWord(word);
+                         Console.WriteLine("");
 
-                   Console.WriteLine("");
-
-                   Console.WriteLine("You Win");
-                    break;
-                }
+                         Console.WriteLine("You Win");
+                         break;
+                    }
                 g1.printPlaceHolderWord(word);
                 Console.WriteLine("");
                 g1.printGuesses();
@@ -69,17 +69,17 @@ namespace ConsoleApplication1
                 Console.WriteLine("You have: " + g1.getNumOfGuesses + " guesses left.");
                 Console.WriteLine("");
 
-                if(g1.getNumOfGuesses == 0)
-                {
-                    Console.WriteLine("You Lose!");
-                }
+                 if(g1.getNumOfGuesses == 0)
+                     {
+                       Console.WriteLine("You Lose!");
+                     }
 
-            } while (g1.getNumOfGuesses != 0);
+            }while(g1.getNumOfGuesses != 0);
 
             
         }
 
-        //prints the place holder word
+        
         
     }
 }
