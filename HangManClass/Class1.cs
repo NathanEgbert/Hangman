@@ -73,9 +73,13 @@ namespace HangManClass
                 {
                     if(word.ElementAt(i) == guess)
                     {
+                        if(wordPlaceHolder.Contains(guess))
+                        {
+                            break;
+                        }
                         wordPlaceHolder[i] = guess;
                         correctGuesses++;
-
+                        
                         
                     }
                 }
