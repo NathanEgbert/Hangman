@@ -138,7 +138,7 @@ namespace HangManClass
             {
                 return numberOfGuesses;
             }
-        }
+        }//returns the number of guesses
 
         
 
