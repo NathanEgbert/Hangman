@@ -11,16 +11,11 @@ namespace HangManClass
 
         //declare vars
         private string[] words = new string[10];
-        public List<char> wrongGuesses = new List<char>();
-        public List<char> wordPlaceHolder = new List<char>();
+        private List<char> wrongGuesses = new List<char>();
+        private List<char> wordPlaceHolder = new List<char>();
         private int numberOfGuesses;
         private int correctGuesses;
 
-
-        
-
-        
-        
         
         //constructor
         public Hangman()
@@ -67,20 +62,14 @@ namespace HangManClass
         public void checkGuess(char guess, string word)
         {
             
-                
-              
                 for (int i = 0; i < word.Length;i++)
                 {
                     if(word.ElementAt(i) == guess)
                     {
-                        if(wordPlaceHolder.Contains(guess))
-                        {
-                            break;
-                        }
+                        
                         wordPlaceHolder[i] = guess;
                         correctGuesses++;
-                        
-                        
+                    
                     }
                 }
   
@@ -139,6 +128,17 @@ namespace HangManClass
                 return numberOfGuesses;
             }
         }
+
+        public  void printPlaceHolderWord(string word)
+        {
+            for (int i = 0; i < word.Length; i++)
+            {
+
+                Console.Write(wordPlaceHolder[i]);
+
+            }
+            Console.WriteLine("");
+        }//end print place holder word
 
     }//end hangman class
 

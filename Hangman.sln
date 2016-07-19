@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangManClass", "HangManClass\HangManClass.csproj", "{4C78DEE5-42DE-4F89-94E4-812E76FB7BA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangManConsole", "ConsoleApplication1\HangManConsole.csproj", "{FFEB860A-5015-42C8-B60F-7BC11921B462}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HangManConsole", "HangManConsole\HangManConsole.csproj", "{FFEB860A-5015-42C8-B60F-7BC11921B462}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
