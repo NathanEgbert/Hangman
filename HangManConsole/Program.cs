@@ -69,6 +69,10 @@ namespace ConsoleApplication1
                 Console.WriteLine("You have: " + g1.getNumOfGuesses + " guesses left.");
                 Console.WriteLine("");
 
+                if(g1.getNumOfGuesses == 0)
+                {
+                    Console.WriteLine("You Lose!");
+                }
 
             } while (g1.getNumOfGuesses != 0);
 
