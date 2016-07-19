@@ -59,6 +59,7 @@ namespace ConsoleApplication1
                          Console.WriteLine("");
 
                          Console.WriteLine("You Win");
+                        
                          break;
                     }
                 g1.printPlaceHolderWord(word);
