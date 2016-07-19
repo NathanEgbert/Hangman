@@ -105,17 +105,17 @@ namespace HangManClass
         {
            if(wordLength > 10)
            {
-               numberOfGuesses = 12;
+               numberOfGuesses = 5;
            }
 
            if(wordLength > 5 && wordLength < 10)
            {
-               numberOfGuesses = 8;
+               numberOfGuesses = 4;
            }
 
            if(wordLength < 5)
            {
-               numberOfGuesses = 6;
+               numberOfGuesses = 3;
            }
         }
 
