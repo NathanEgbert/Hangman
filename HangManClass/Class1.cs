@@ -7,23 +7,24 @@ using System.Threading.Tasks;
 namespace HangManClass
 {
 
-    
+
     public class Hangman
     {
 
         //declare vars
         private string[] words = new string[10];
-        private List<char> wrongGuesses = new List<char>();
-        private List<char> wordPlaceHolder = new List<char>();
+        private string wrongGuesses;
+        private string wordPlaceHolder;
         private int numberOfGuesses;
-        private int correctGuesses;
 
-        
+
+
         //constructor
         public Hangman()
         {
+            wrongGuesses = "";
             numberOfGuesses = 0;
-            correctGuesses = 0;
+
 
             words[0] = "python";
             words[1] = "java";
@@ -36,10 +37,10 @@ namespace HangManClass
             words[8] = "agilethouht";
             words[9] = "deloitte";
         }//end constructor
-        
+
 
         //gets the word to be played
-        public string getword()
+        private string getword()
         {
             Random r1 = new Random();
             int randomNum = r1.Next(0, 10);
@@ -50,80 +51,88 @@ namespace HangManClass
 
 
         //place holder word
-        public void generatePlaceholderWord(string word1)
+        private void generatePlaceholderWord(string word1)
         {
-           for(int i = 0; i < word1.Length; i++)
-           {
-               wordPlaceHolder.Add('*');
-           }
+            
+            
+                wordPlaceHolder = new string('*', word1.Length);
+            
         }//end generate place holder
 
 
 
         // checks the players guess
-        public void checkGuess(char guess, string word)
+        private void checkGuess(char guess, string word)
         {
-            
-                for (int i = 0; i < word.Length;i++)
-                {
-                    if(word.ElementAt(i) == guess)
-                    {
-                        
-                        wordPlaceHolder[i] = guess;
-                        correctGuesses++;
-                    
-                    }
-                }
-  
-                if(!(word.Contains(guess)))
-                 {
-                wrongGuesses.Add(guess);
+
+            var newstring = new StringBuilder(wordPlaceHolder);
+
+            if (!(word.Contains(guess)))
+            {
+                wrongGuesses += guess;
                 numberOfGuesses -= 1;
-                 }
+            }
+
+            for (int i = 0; i < word.Length; i++)
+            {
+                if (word.ElementAt(i) == guess)
+                {
+                    newstring.Remove(i, 1);
+                    newstring.Insert(i, guess);
+                    wordPlaceHolder = newstring.ToString();
+                }
+            }
+
+            
 
         }//end check guess
 
-        public bool checkForWin(string word1)
+        private bool checkForWin()
         {
-            if (correctGuesses == word1.Length)
-            {
-                return true;
-            }
-            else return false;
+
+
+            return !wordPlaceHolder.Contains('*');
+
+
         }
 
         //prints guesses
-        public void printGuesses()
+        private void printGuesses()
         {
-            Console.WriteLine("Incorrect guesses: "); 
-            foreach(char element in wrongGuesses)
+            Console.WriteLine("Incorrect guesses: ");
+            if(wrongGuesses.Length==0)
             {
-                Console.Write(element);
+                Console.WriteLine("0");
             }
-            Console.WriteLine("");
+            for (var i = 0; i < wrongGuesses.Length;i++)
+            {
+                Console.Write(wrongGuesses.ElementAt(i));
+            }
+                Console.WriteLine("");
         }
 
-        public void setNumOfGuesses(int wordLength)
+        private void setNumOfGuesses(int wordLength)
         {
-           if(wordLength > 10)
-           {
-               numberOfGuesses = 5;
-           }
+            if (wordLength > 10)
+            {
+                numberOfGuesses = 5;
+            }
 
-           if(wordLength > 5 && wordLength < 10)
-           {
-               numberOfGuesses = 4;
-           }
+            if (wordLength >= 5 && wordLength < 10)
+            {
+                numberOfGuesses = 4;
+            }
 
-           if(wordLength < 5)
-           {
-               numberOfGuesses = 3;
-           }
+            if (wordLength < 5)
+            {
+                numberOfGuesses = 3;
+            }
         }
 
         //prints the placeholdder word
-        public void printPlaceHolderWord(string word)
+        private void printPlaceHolderWord(string word)
         {
+            Console.WriteLine();
             for (int i = 0; i < word.Length; i++)
             {
 
@@ -134,7 +143,7 @@ namespace HangManClass
         }//end print place holder word
 
         //getters
-        public int getNumOfGuesses
+        private int getNumOfGuesses
         {
             get
             {
@@ -142,7 +151,80 @@ namespace HangManClass
             }
         }//returns the number of guesses
 
-        
+
+        public void Run()
+        {
+            char pGuess;
+            string word;
+
+            //getting a word
+            word = getword();
+            setNumOfGuesses(word.Length);
+
+            //generate place holder word
+            generatePlaceholderWord(word);
+
+            Console.WriteLine("Play Game");
+
+            Console.WriteLine();
+
+            printPlaceHolderWord(word);
+
+            Console.WriteLine();
+
+            Console.WriteLine("You have: " + getNumOfGuesses + " guesses.");
+
+            Console.WriteLine();
+
+            do
+            {
+
+
+                Console.WriteLine("Enter a guess: ");
+
+
+                pGuess = Console.ReadKey().KeyChar;
+
+
+                checkGuess(pGuess, word);
+
+
+
+                if (checkForWin() == true)
+                {
+                    Console.WriteLine();
+                    Console.Write("The word was: ");
+
+                    Console.WriteLine();
+
+                    printPlaceHolderWord(word);
+
+                    Console.WriteLine();
+
+                    Console.WriteLine("You Win");
+
+                    break;
+                }
+                printPlaceHolderWord(word);
+                Console.WriteLine("");
+                printGuesses();
+
+                Console.WriteLine("");
+                Console.WriteLine("You have: " + getNumOfGuesses + " guesses left.");
+                Console.WriteLine("");
+
+                if (getNumOfGuesses == 0)
+                {
+                    Console.WriteLine("You Lose!");
+                }
+
+            } while (getNumOfGuesses != 0);
+
+
+        }
+
+
+
 
     }//end hangman class
 
