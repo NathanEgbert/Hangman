@@ -4,58 +4,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HangManClass
+namespace HangMan
 {
 
 
     public class Hangman
     {
+        
+       IWordGenerator wordGenerator;
 
         //declare vars
-        private string[] words = new string[10];
+        
         private string wrongGuesses;
-        private string wordPlaceHolder;
+        private StringBuilder wordPlaceHolder = new StringBuilder();
         private int numberOfGuesses;
 
 
 
         //constructor
-        public Hangman()
+        public Hangman(WordType generatorType)
         {
+            switch (generatorType)
+            {
+                case WordType.Disney:
+                    wordGenerator = new DisneyWordGenerator();
+                    break;
+                default:
+                    wordGenerator = new HardCodedWordGenerator();
+                    break;
+            }
+
             wrongGuesses = "";
             numberOfGuesses = 0;
+            
 
 
-            words[0] = "python";
-            words[1] = "java";
-            words[2] = "mississippi";
-            words[3] = "car";
-            words[4] = "tacos";
-            words[5] = "time";
-            words[6] = "baseball";
-            words[7] = "watch";
-            words[8] = "agilethouht";
-            words[9] = "deloitte";
+         
         }//end constructor
 
 
         //gets the word to be played
-        private string getword()
-        {
-            Random r1 = new Random();
-            int randomNum = r1.Next(0, 10);
-
-            return words[randomNum];
-
-        }//end getword
+        
 
 
         //place holder word
         private void generatePlaceholderWord(string word1)
         {
-            
-            
-                wordPlaceHolder = new string('*', word1.Length);
+
+             wordPlaceHolder = new StringBuilder(new String('*', word1.Length));
+                
             
         }//end generate place holder
 
@@ -65,7 +62,7 @@ namespace HangManClass
         private void checkGuess(char guess, string word)
         {
 
-            var newstring = new StringBuilder(wordPlaceHolder);
+            
 
             if (!(word.Contains(guess)))
             {
@@ -77,9 +74,10 @@ namespace HangManClass
             {
                 if (word.ElementAt(i) == guess)
                 {
-                    newstring.Remove(i, 1);
-                    newstring.Insert(i, guess);
-                    wordPlaceHolder = newstring.ToString();
+                    
+                    wordPlaceHolder.Remove(i, 1);
+                    wordPlaceHolder.Insert(i, guess);
+                    
                 }
             }
 
@@ -91,7 +89,7 @@ namespace HangManClass
         {
 
 
-            return !wordPlaceHolder.Contains('*');
+            return !wordPlaceHolder.ToString().Contains('*');
 
 
         }
@@ -154,11 +152,14 @@ namespace HangManClass
 
         public void Run()
         {
+            
             char pGuess;
             string word;
 
             //getting a word
-            word = getword();
+            word = wordGenerator.GetWord();
+
+            
             setNumOfGuesses(word.Length);
 
             //generate place holder word

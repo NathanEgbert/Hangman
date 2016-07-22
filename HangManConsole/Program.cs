@@ -3,22 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HangManClass;
 
-namespace ConsoleApplication1
+
+namespace HangMan
 {
     class HangManConsole
     {
 
-        
-        
-         
-
         public static void Main(string[] args)
         {
-            Hangman g1 = new Hangman();
+            
+           
+            Hangman g1 = new Hangman(WordType.HardCoded);
 
             g1.Run();
+
+            
 
         }
     }
