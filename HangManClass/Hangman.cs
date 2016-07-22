@@ -29,17 +29,16 @@ namespace HangMan
                 case WordType.Disney:
                     wordGenerator = new DisneyWordGenerator();
                     break;
+
                 default:
                     wordGenerator = new HardCodedWordGenerator();
                     break;
-            }
+
+            }//end switch
 
             wrongGuesses = "";
             numberOfGuesses = 0;
-            
-
-
-         
+ 
         }//end constructor
 
 
@@ -68,7 +67,7 @@ namespace HangMan
             {
                 wrongGuesses += guess;
                 numberOfGuesses -= 1;
-            }
+            }//end if
 
             for (int i = 0; i < word.Length; i++)
             {
@@ -78,8 +77,8 @@ namespace HangMan
                     wordPlaceHolder.Remove(i, 1);
                     wordPlaceHolder.Insert(i, guess);
                     
-                }
-            }
+                }//end if
+            }//end for
 
             
 
@@ -92,7 +91,7 @@ namespace HangMan
             return !wordPlaceHolder.ToString().Contains('*');
 
 
-        }
+        }//end check for win
 
         //prints guesses
         private void printGuesses()
@@ -107,7 +106,7 @@ namespace HangMan
                 Console.Write(wrongGuesses.ElementAt(i));
             }
                 Console.WriteLine("");
-        }
+        }//end print guesses
 
         private void setNumOfGuesses(int wordLength)
         {
@@ -125,7 +124,7 @@ namespace HangMan
             {
                 numberOfGuesses = 3;
             }
-        }
+        }//end set number of guesses
 
         //prints the placeholdder word
         private void printPlaceHolderWord(string word)
@@ -140,14 +139,7 @@ namespace HangMan
             Console.WriteLine("");
         }//end print place holder word
 
-        //getters
-        private int getNumOfGuesses
-        {
-            get
-            {
-                return numberOfGuesses;
-            }
-        }//returns the number of guesses
+        
 
 
         public void Run()
@@ -222,7 +214,16 @@ namespace HangMan
             } while (getNumOfGuesses != 0);
 
 
-        }
+        }//end run
+
+        //getters
+        private int getNumOfGuesses
+        {
+            get
+            {
+                return numberOfGuesses;
+            }
+        }//returns the number of guesses
 
 
 
